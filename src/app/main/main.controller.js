@@ -1,7 +1,16 @@
 'use strict';
 
 angular.module('otsurvey')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, initialData) {
+
+    console.log('i am at the top of the pack');
+    console.log('i am initialData:');
+    console.log(initialData);
+    // $scope.initialData = initialData;
+    // $scope.siteTitle = initialData.siteTitle[0];
+    // $scope.dreamSections = initialData.dreamSections[0];
+    // $scope.services = initialData.services;
+    // $scope.clients = clients;
     $scope.awesomeThings = [
       {
         'title': 'AngularJS',
