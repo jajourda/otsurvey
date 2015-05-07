@@ -47,6 +47,7 @@ module.exports = function(options) {
       .pipe(jsFilter.restore())
       .pipe(cssFilter)
       .pipe($.replace('../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/', '../fonts/'))
+      .pipe($.replace('/assets/images/', 'assets/images/'))
       .pipe($.csso())
       .pipe(cssFilter.restore())
       .pipe(assets.restore())
