@@ -75,8 +75,8 @@ module.exports = function(options) {
   });
 
    gulp.task('images', function () {
-    return gulp.src(options.src + '/app/images/**.*')
-      .pipe(gulp.dest(options.dist + '/assets/images/'));
+    return gulp.src([options.src + '/assets/images/ezekiel1-left.png',options.src + '/assets/images/ezekiel1-right.png'])
+      .pipe(gulp.dest(options.dist + '/styles/assets/images/'));
   });
 
 
