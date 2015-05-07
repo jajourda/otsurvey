@@ -1,0 +1,14 @@
+footer.footer{
+	@include column(12);
+	@include pv($g2);
+	background:$primary;
+	margin: 0;
+	color:white;
+	font-weight: 900;
+}
+
+a.footer-menu{
+	background:$secondary-medium;
+	display:block;
+	font-size: 1.75rem;
+}

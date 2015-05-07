@@ -1,0 +1,38 @@
+//_svg.scss
+header .svg-crab-icon-dims{}
+.icon-svg{
+  height: 75px;
+  width:75px;
+}
+.path-crab{
+  fill:$primary-dark;
+}
+
+.crab-left{
+  .svg-wrap{
+    .path-crab{
+      fill:$primary;
+    }
+  }
+}
+.crab-right{
+  .svg-wrap{
+    .path-crab{
+      fill:$primary;
+    }
+  }
+}
+.crab-bottom{
+  .svg-wrap{
+    .path-crab{
+      fill:$primary;
+    }
+  }
+}
+.crab-red{
+  .svg-wrap{
+    .path-crab{
+      fill:$primary;
+    }
+  }
+}

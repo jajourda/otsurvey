@@ -1,0 +1,56 @@
+//breakpoints for scoped media queries
+$sc-xs:'(max-width : 480px)';
+$sc-smo:'(max-width : 768px)';
+$sc-sm:'(min-width : 768px)';
+$sc-md:'(min-width : 992px)';
+$sc-lg:'(min-width : 1200px)';
+
+
+
+//variables for screen size boundaries
+$xs: 480px;
+$xs-max: 479px;
+$sm: 768px;
+$sm-max: 767px;
+$md: 992px;
+$md-max: 991px;
+$lg: 1200px;
+$lg-max: 1199px;
+
+// $xstest: 768px;
+
+
+			// lg
+   //          /* Large desktops and laptops */
+   //          @media (min-width: 1200px) {
+
+   //          }
+
+   //          ptmd
+   //          /* Portrait tablets and medium desktops */
+   //          @media (min-width: 992px) and (max-width: 1199px) {
+
+   //          }
+   //          ptsm
+   //          /* Portrait tablets and small desktops */
+   //          @media (min-width: 768px) and (max-width: 991px) {
+
+   //          }
+   //          sm
+   //          /* Landscape phones and portrait tablets */
+   //          @media (max-width: 767px) {
+
+   //          }
+   //          xs
+   //          /* Landscape phones and smaller */
+   //          @media (max-width: 480px) {
+
+   //          }
+
+
+
+.sm-only{
+	@include min-screen($sm) {
+		display:none!important;
+	}
+}

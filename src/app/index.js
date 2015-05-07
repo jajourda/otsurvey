@@ -16,7 +16,11 @@ angular.module('otsurvey', ['ngAnimate',
   //set up main main route with two arguments passed:
   /*1. teh route as string*/
   /*2. the segment that will be associated with that route by angular-route-segment*/
-  rsp.when('/', 'main')
+  rsp.when('/', 'main');
+
+  rsp.when('/about', 'about');
+
+  rsp.when('/contact', 'contact');
 
   rsp.segment('main', {
           templateUrl: 'app/main/main.html',
@@ -26,7 +30,17 @@ angular.module('otsurvey', ['ngAnimate',
                   return MainControllerInitialData();
               }
           }
-      })
+      });
+
+  rsp.segment('about',{
+    templateUrl:'app/about/about.html',
+    controller:'AboutCtrl'
+  });
+
+  rsp.segment('contact',{
+    templateUrl:'app/contact/contact.html',
+    controller:'ContactCtrl'
+  })
   //route provider gets the otherwise method; rsp will handle the rest.
   $routeProvider
       .otherwise({

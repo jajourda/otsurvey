@@ -1,0 +1,121 @@
+body.modal-open{
+	&:before{
+		content:'';
+		display: block;
+		position:fixed;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		background:rgba(black, 0.8);
+		z-index: 3;
+	}
+}
+
+.carousel-wrap.home{
+	// @include row();
+	// height:505px;
+	// /* Home Page Carousel */
+
+	// .fill-carousel {
+	//     height: 50%;
+	// }
+
+	// .fill-carousel .item,
+	// .fill-carousel .item.active,
+	// .fill-carousel .carousel-inner {
+	//     height: 100%;
+	// }
+
+	// .fill-carousel .fill {
+	//     width: 100%;
+	//     height: 100%;
+	//     background-position: center;
+	//     background-size: cover;
+	// }
+	// .slide.carousel, .carousel-inner, .item, .fill{
+	// 	height:inherit;
+	// }
+
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next,
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right {
+    @include min-screen($sm){
+      // position: absolute;
+      // top: 100%;
+      // z-index: 5;
+      // display: inline-block;
+    }
+  }
+
+  .carousel-inner{
+    @include min-screen($sm) {
+      padding-bottom:0;
+    }
+  }
+  .item{
+    @include min-screen($sm) {
+      padding: 0 5rem;
+    }
+    @include min-screen($md){
+      padding: 0 5rem;
+    }
+  }
+  .carousel-control{
+    //top: 63%;
+  }
+  .carousel-control.right, .carousel-control.left {
+    @include min-screen($sm) {
+      margin-bottom: 0;
+      padding:0;
+      background:$secondary-lighter;
+      top:100%;
+      height:6rem;
+    }
+    @include min-screen($md) {
+      top:63%;
+    }
+    span.glyphicon{
+      @include min-screen($sm) {
+        color:$secondary;
+        top:50%;
+      }
+    }
+  }
+
+
+
+  .inner-slide-wrap{
+   @include min-screen($sm) {
+     margin-bottom: $g;
+   }
+   @include min-screen($sm) {
+     margin-bottom: 0;
+   }
+  }
+
+
+	.slide-caption{
+		@include column(12);
+		text-align: left;
+		@include min-screen($md) {
+			@include column(3);
+		}
+		h2{
+			@include unset-block;
+			@include column(12);
+		}
+	}
+
+	.carousel-indicators{
+		display: none;
+	}
+	.btn.btn-default.btn-carousel{
+		@include column(12);
+		@include pv($p);
+		background:$primary-light;
+		color:$secondary-light;
+	}
+}
+

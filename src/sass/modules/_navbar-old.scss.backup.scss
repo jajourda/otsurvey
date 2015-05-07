@@ -1,0 +1,177 @@
+
+
+// // Primary mixin
+// @mixin buttons {
+//   a.button, button {
+//     @include button(black, silver);
+//     &.blue  { @include button(white, blue); }
+//     &.red   { @include button(white, red); }
+//     &.green { @include button(white, green); }
+//   }
+// }
+
+// // Button mixin
+// @mixin button($text-color, $bg-color) {
+//   font: 12px bold sans-serif;
+//   padding: 3px 8px;
+//   @include color-button($text-color, $bg-color));
+//   &:hover, &:focus { @include color-button($text-color, lighten($bg-color, 10%)); }
+//   &:active { background: darken($bg-color, 5%); }
+// }
+
+// // Color button mixin
+// @mixin color-button($text-color, $bg-color) {
+//   color: $text-color;
+//   border: 1px solid mix(black, $bg-color);
+//   @include background-image(
+//     linear-gradient(
+//       lighten($bg-color, 5%),
+//       darken($bg-color, 5%)
+//     )
+//   );
+// }
+
+// @mixin topnav {
+//   @include navlogo;
+// }
+// @mixin navlogo {
+//   .navbar-brand{
+//     figure.navbar-logo{
+      
+//     }
+//   }
+// }
+
+
+
+
+//navbar
+.navbar-parent{
+  //sub specific
+  &#navbar-main{
+    .navbar-brand{
+      padding:6px;
+    }
+  }
+  .navbar-logo {
+    //same width as the font-size of the logo icon
+    width:12rem;
+    .chart-icon-logo{
+      //change the line-height
+      line-height: $g;
+      padding-top: $q;
+    }
+  }
+  .navbar-inverse .navbar-nav > .active > a{
+    background:$blue;
+  }
+  .navbar-inverse{
+    background:$m-blue;
+    border:none;
+    &.back-blue{
+      background:$m-blue;
+      .navbar-nav > .active > a{
+        background:$blue;
+      }
+      //links
+      .navbar-nav a{
+        color:$white;
+      }
+      //logo
+      .navbar-logo .chart-icon-logo{
+        color:$white;
+      }
+    }
+    &.back-red{
+      background:$m-red;
+      .navbar-nav > .active > a{
+        background:$red;
+      }
+      //links
+      .navbar-nav a{
+        color:$white;
+      }
+      //logo
+      .navbar-logo .chart-icon-logo{
+        color:$white;
+      }
+    }
+    &.back-green{
+      background:$m-green;
+      .navbar-nav > .active > a{
+        background:$green;
+      }
+      //links
+      .navbar-nav a{
+        color:$black;
+      }
+      //logo
+      .navbar-logo .chart-icon-logo{
+        color:$black;
+      }
+    }
+    &.back-yellow{
+      background:$m-yellow;
+      .navbar-nav > .active > a{
+        background:$yellow;
+      }
+      //links
+      .navbar-nav a{
+        color:$black;
+      }
+      //logo
+      .navbar-logo .chart-icon-logo{
+        color:$black;
+      }
+    }
+    .navbar-nav li a{
+      font-weight: 600;
+      color:white;
+    }
+  }
+  .navbar-header{
+    button.navbar-toggle{
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      height:5rem;
+      &:focus, &:hover{
+        background:none;
+      }
+    }
+    .mobile-nav-logo{
+      font-size: 8rem;
+      line-height: 5rem;
+    }
+  }
+  .navbar-collapse{
+    border-top: 0;
+  }
+
+}
+
+.first-nav{
+  .container{
+    // padding: 0;
+    // margin-left: 0;
+    // margin-right: 0;
+  }
+  #first-nav{
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float:right;
+  }
+}
+
+
+.second-nav{
+  #second-nav{
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float:none;
+  }
+}
+

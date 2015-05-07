@@ -1,0 +1,251 @@
+
+// Custom random function
+// To allow a minimum value
+// ------------------------------------------------------------
+// @param $min: minimum value
+// @param $max: maximum value
+// ------------------------------------------------------------
+// @return random number
+
+@function rand($min, $max) {
+  @return random($max - $min) + $min;
+}
+
+// Private function for custom stops
+// ------------------------------------------------------------
+// @param $colors: list of color + associated stop
+//     ex: (red 10%, blue 50%, green 65%)
+// ------------------------------------------------------------
+// @return list to be used as a gradient
+
+@function _stripes-custom-stops($colors) {
+  $gradients: ();
+
+  @for $i from 1 to length($colors) {
+    @if length(nth($colors, $i)) > 1 {
+      $color: nth(nth($colors, $i), 1);
+      $stop:  nth(nth($colors, $i), 2);
+
+      $gradients: append($gradients, $color $stop, comma);
+      @if $i < length($colors) {
+        $gradients: append($gradients, nth(nth($colors, $i + 1), 1) $stop);
+      }
+    }
+
+    @else {
+      @warn '`#{nth($colors, $i)}` skipped because it is only one item long while it should be 2: (color, color-stop).';
+    }
+  }
+
+  @return $gradients;
+}
+
+// Private function for random stops
+// ------------------------------------------------------------
+// @param $colors: list of color
+//     ex: (red, blue, green)
+// ------------------------------------------------------------
+// @return two dimensional list
+
+@function _stripes-random-stops($colors) {
+  @if length(nth($colors, 1)) > 1 {
+    @return _stripes-custom-stops($colors);
+  }
+
+  $n: length($colors);
+  $gradients: ();
+  $variation: 10;
+  $median: 100 / $n;
+
+  @for $i from 1 to $n {
+    $stop: $median * $i;
+    $random: rand($stop - $variation, $stop + $variation) * 1%;
+    $gradients: append($gradients, nth($colors, $i) $random, comma);
+    @if $i < length($colors) {
+      $gradients: append($gradients, nth(nth($colors, $i + 1), 1) $random);
+    }
+  }
+
+  @return $gradients;
+}
+
+// Private function for equal stops
+// ------------------------------------------------------------
+// @param $colors: list of color
+//     ex: (red, blue, green)
+// ------------------------------------------------------------
+// @return two dimensional list
+
+@function _stripes-equal-stops($colors) {
+  $gradients: ();
+  $stops: 100% / length($colors);
+
+  // Loop through colors
+  @for $i from 1 to length($colors) {
+    $gradients: append($gradients, nth($colors, $i) $i * $stops, comma);
+    @if $i < length($colors) {
+      $gradients: append($gradients, nth($colors, $i + 1) $i * $stops);
+    }
+  }
+
+  // Return gradient
+  @return $gradients;
+}
+
+// Function turning a list of colors (and if specified stops)
+// into a stripes gradient
+// ------------------------------------------------------------
+// @param $colors: list of color or color + color stop
+//     ex: (red blue green)
+//     ex: (red 10%, blue 50%, green 65%)
+// @param $direction: gradient direction in keyword or degrees
+// @param $random: should color-stops be randomly generated
+// ------------------------------------------------------------
+// @return gradient
+
+@function stripes($colors, $direction: 90deg, $random: false) {
+  // If lonely color
+  @if length($colors) == 1 { @return $colors; }
+
+  // Else
+  $type: if($random, 'random', if(length(nth($colors, 1)) > 1, 'custom', 'equal'));
+  @return linear-gradient($direction, call('_stripes-#{$type}-stops', $colors));
+}
+
+
+
+// &:before,
+//  &:after {
+//    position: absolute;
+//    content: '';
+//    height: 1em;
+//    top: 0;
+//    left: 0;
+//    right: 0;
+//    width:100%;
+//  }
+
+//  &:after {
+//    top: auto;
+//    bottom: 0;
+//  }
+
+//  &:before {
+//    $equal-stops: #1abc9c #2ecc71 #3498db #9b59b6 #34495e #f1c40f #e67e22 #e74c3c #ecf0f1 #95a5a6;
+
+//    // Equal stops
+//    // background: stripes($equal-stops, $direction);
+
+//    // Random stops
+//    background: stripes($equal-stops, 90deg, $random: true);
+//  }
+
+//  &:after {
+//    $custom-stops: #1abc9c 10%, #2ecc71 12.5%, #3498db 28%, #9b59b6 35%, #34495e 60%, #f1c40f 69%, #e67e22 83%, #e74c3c 88%, #ecf0f1 96%, #95a5a6 100%;
+
+//    // Custom stops
+//    background: stripes($custom-stops, 90deg);
+//  }
+
+$thicknessTop: 2.5rem;
+@mixin tetrad($c) {
+  padding-left:0;
+  padding-right:0;
+ img{
+
+  //blue base
+  @if $c == "blue" {
+     border-bottom: solid $blue;
+   }
+   //red
+   @if $c == "red" {
+      border-bottom: solid $red;
+    }
+     //yellow
+   @if $c == "yellow" {
+      border-bottom: solid $yellow;
+    }
+     //green
+   @if $c == "green" {
+      border-bottom: solid $green;
+    }
+    border-bottom-width: $thicknessTop;
+    @include min-screen($xs) {
+      border-bottom-width: $thicknessTop * 1.25;
+    }
+    @include min-screen($sm) {
+      border-bottom-width: $thicknessTop * 2;
+    }
+ }
+ div.dyad{
+  @include tetrad-dyad($c);
+ }
+}
+//function to set the dyad based on the base-color
+@function set-dyad($base) {
+  //blue base
+  @if $base == "blue" {
+    $equal-stops: $m-blue $l-blue;
+    @return $equal-stops;
+   }
+  //red base
+  @if $base == "red" {
+    $equal-stops: $m-red $l-red;
+    @return $equal-stops;
+  }
+  //yellow base
+  @if $base == "yellow" {
+    $equal-stops: $m-yellow $l-yellow;
+    @return $equal-stops;
+   }
+   //green base
+   @if $base == "green" {
+     $equal-stops: $m-green $l-green;
+     @return $equal-stops;
+    }
+
+}
+//the mixin to write the css fo the dyad
+@mixin tetrad-dyad($c) {
+  //border-bottom: red solid 2.25rem;
+  $equal-stops: set-dyad($c);
+   background: stripes($equal-stops, 90deg);
+   $thicknessDyad: 1.5rem;
+   //height
+   height:$thicknessDyad;
+     @include min-screen($xs) {
+      height: $thicknessDyad * 1.25;
+     }
+     @include min-screen($sm) {
+      height: $thicknessDyad * 2;
+     }
+} 
+
+
+.pop-stripe{
+  //border:solid 5px $l-blue;
+  //@include column(12);
+  height: 10px;
+  $equal-stops: $blue $m-blue $l-blue $red $m-red $l-red $green $m-green $l-green $yellow $m-yellow $l-yellow;
+
+  // Equal stops
+  // background: stripes($equal-stops, $direction);
+
+  // Random stops
+  background: stripes($equal-stops, 90deg);
+}
+
+.tetrad{
+  &.tetrad-blue{
+    @include tetrad('blue');
+  }
+  &.tetrad-red{
+    @include tetrad('red');
+  }
+  &.tetrad-yellow{
+    @include tetrad('yellow');
+  }
+  &.tetrad-green{
+    @include tetrad('green');
+  }
+}

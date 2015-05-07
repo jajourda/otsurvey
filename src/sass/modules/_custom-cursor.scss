@@ -1,0 +1,14 @@
+.custom-cursor-target{
+	cursor: none;
+}
+#custom-cursor{
+	background-image: url('../assets/images/cursor.png');
+	background-repeat:no-repeat;
+	position: absolute;
+	//margin-left: -25%; 
+	display: block;
+	width:106px;
+	height:106px;
+	padding:0;
+	margin:0;
+}

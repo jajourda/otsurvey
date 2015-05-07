@@ -1,0 +1,9 @@
+@mixin charttextshadow ($c) {
+	//the colors should be globally available
+	//Can output up to ten text shadows
+	  //text-shadow: $blue 5px 5px 0, $red 10px 10px 0, $green 15px 15px 0, $yellow 20px 20px 0;
+	  // Can output up to ten text shadows
+	  @if $c == $green {
+	  	text-shadow: $green 5px 5px 0;
+	  }
+}

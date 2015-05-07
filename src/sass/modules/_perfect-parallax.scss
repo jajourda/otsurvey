@@ -1,0 +1,10 @@
+//_perfect-parallax.scss
+.perf-parent{
+  transition-property: background-position;
+  //relative positioning keeps the child in the parallax parent
+  position:relative;
+}
+.perf-px-img{
+  position: relative;
+
+}

@@ -1,0 +1,12 @@
+//_scheme-colors.scss
+
+.sub-secondary{
+  background:$secondary-medium;
+  &.sub-secondary-darker{
+  	background:$secondary-medium;
+  }
+}
+.success .sub-secondary{
+  background:$primary-medium;
+}
+

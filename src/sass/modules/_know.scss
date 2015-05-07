@@ -1,0 +1,16 @@
+//_know.scss
+
+//icons
+div.our-icon{
+	font-size: 6rem;
+	color:$secondary-medium;
+}
+
+.know.column{
+	@include sm(4) {
+		text-align: center;
+	}
+	ul{
+		list-style-type: none;
+	}
+}

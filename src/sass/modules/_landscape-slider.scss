@@ -1,0 +1,42 @@
+//_landscape-slider.scss
+.landscape-slider{
+  @include row();
+  .shots-wrap{
+    @include sm(10,1);
+    position: relative;
+  }
+  .focused-shot{
+    @include sm(7) {
+      padding-left: 0;
+      padding-right: 0;
+      @include push(2.5);
+    }
+    span.glyphicon{
+      @include sm(7);
+      position:absolute;
+      text-align: center;
+      font-size: 12rem;
+      top:$g2;
+      opacity:0;
+      &:hover{
+        opacity:1;
+      }
+    }
+  }
+  .move-focused{
+    @include sm(2.5) {
+      position:absolute;
+      bottom:0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    span.glyphicon{
+      @include sm(12);
+      position:absolute;
+      text-align: center;
+      font-size: 6rem;
+      top:$g;
+
+    }
+  }
+}

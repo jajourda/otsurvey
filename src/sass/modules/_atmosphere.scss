@@ -1,0 +1,8 @@
+//atmosphere.scss
+.text-chunk{
+	p{
+		@include lg {
+			font-size: 1.5rem;
+		};
+	}
+}

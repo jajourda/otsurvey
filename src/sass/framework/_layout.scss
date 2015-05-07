@@ -1,0 +1,346 @@
+/*
+
+*/
+/* ======= Base ======= */
+
+body {
+    @extend .copy-font;
+    @include column(12, 0);
+    padding-top: 0;
+    color: #434343;
+    //background: $white;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    color: $black;
+    position: relative;
+    background: $yellow;
+}
+
+.app-wrap{
+  @include row();
+}
+.shaped-container{
+  //overflow:hidden;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+.shaped{
+  height:100vh;
+  width:40vw;
+  float:right;
+  background-color:#ccc;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-image:url('/assets/images/ezekiel1-right.png');
+  /*-webkit-shape-outside: polygon(0 0, 100% 0, 100% 100%, 30% 100%);*/
+  shape-outside: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
+  shape-margin: 20px;
+  &.left{
+    float:left;
+    //background-color:#ccc;
+    background-image:url('/assets/images/ezekiel1-left.png');
+    shape-outside: polygon(0 100%, 0 100%, 100% 0, 0 0);
+    clip-path: polygon(0 100%, 0 100%, 100% 0, 0 0);
+  }
+}
+.shaped-content{
+  padding-top: $p;
+}
+
+@include max-screen($sm-max) {
+    body {
+        @include unset-block;
+    }
+    .navbar {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+// html,
+// body {
+//   height: 100%;
+// }
+//wrapper; wrapper will always function as a row.
+.wrapper {
+    @include row($p);
+}
+
+
+
+//universals
+h1,
+span.h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-shadow: none;
+    //color:$black;
+    //@extend .copy-font;
+}
+
+h1,
+span.h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @extend .heading-font;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h1,
+span.h1 {
+    font-weight: 900;
+    color: $white;
+}
+
+//heading level 2
+h2 {
+    font-weight: 900;
+}
+
+h3 {
+    text-transform: none;
+}
+
+a {
+    color: #3aaa64;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #5f6b77;
+    color: #2d844e;
+}
+
+.btn-wrap {
+    @include mv(0, $g2);
+}
+
+.btn,
+a.btn {
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    font-family: 'Montserrat', arial, sans-serif;
+    padding: 8px 16px;
+    font-weight: bold;
+}
+
+.btn .fa,
+a.btn .fa {
+    margin-right: 5px;
+}
+
+.btn:focus,
+a.btn:focus {
+    color: #fff;
+}
+
+a.btn-cta-primary,
+.btn-cta-primary {
+    background: #54ba4e;
+    border: 1px solid #54ba4e;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+a.btn-cta-primary:hover,
+.btn-cta-primary:hover {
+    background: #49ac43;
+    border: 1px solid #49ac43;
+    color: #fff;
+}
+
+a.btn-cta-secondary,
+.btn-cta-secondary {
+    background: #479fc8;
+    border: 1px solid #479fc8;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+a.btn-cta-secondary:hover,
+.btn-cta-secondary:hover {
+    background: #3893bd;
+    border: 1px solid #3893bd;
+    color: #fff;
+}
+
+.text-highlight {
+    color: #32383e;
+}
+
+.label-theme {
+    background: #3aaa64;
+    font-size: 12px;
+}
+
+a.dotted-link {
+    border-bottom: 1px dotted #778492;
+    color: #778492;
+}
+
+a.dotted-link:hover {
+    text-decoration: none;
+    color: #49515a;
+}
+
+hr.main-divider {
+    border-top: solid 2rem $secondary;
+}
+
+section {
+    .container {
+        .row {
+            @include row();
+        }
+    }
+}
+
+h1.page-header {
+    text-align: center;
+    color: black;
+    border-bottom: none;
+}
+
+a.link {
+    background: $secondary-lighter;
+    color: $primary;
+    font-weight: 900;
+    &:hover {
+        background: $primary;
+        color: $secondary-lighter;
+    }
+}
+
+//navbar
+#nav.navbar.navbar-inverse .navbar-header a.navbar-brand {
+    padding: 0;
+    @include mv($q);
+}
+
+figure.figure-navbar-brand {
+    @include column(12, $g);
+    width: 200px;
+}
+/* images */
+
+figure img {
+    width: 100%;
+    height: auto;
+}
+
+.btn-show-more {
+    //@include column(12);
+    background: $primary-lightest;
+    color: $primary;
+    border: none;
+    @include max-screen($sm-max) {
+        //@include column(12);
+        width: 100%;
+        @include pv($p);
+        margin-bottom: $p;
+    }
+    @include min-screen($sm) {
+        background: none;
+    }
+}
+
+.btn:focus {
+    background-color: $primary;
+    border: none;
+}
+
+.main-div {
+    h1 {
+        color: $teal-dark;
+        text-shadow: .25rem .25rem 0 $teal-medium;
+        text-align: center;
+        //background: $green-dark;
+    }
+    p.lead {
+        color: #333;
+        font-weight: 900;
+        font-size: 1.25rem;
+        text-align: center;
+    }
+    strong.focus {
+      color:$yellow;
+        background: $teal-dark;
+        padding: $q;
+        display: inline-block;
+        //@extend .heading-font;
+        font-size: 4rem;
+        padding:$p;
+        letter-spacing: $p;
+    }
+    em{
+      font-weight: 700;
+    }
+    .current-wrap{
+      background:$orange-dark;
+      @include pv($g);
+      h2{
+        text-align: center;
+      }
+    }
+    div.current{
+      text-align: center;
+    }
+}
+
+//components: navbar
+#navbar {
+    background: $teal-dark;
+    border:none;
+    @include column(12,0);
+    margin: 0;
+    position: relative;
+    &:after{
+      content: '';
+      background:$teal-medium;
+      display: block;
+      position:absolute;
+      width:100%;
+      height:$g;
+      bottom:-$g;
+      left:0;
+    }
+    ul{
+      li{
+        a{
+          color:$yellow;
+        }
+      }
+    }
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{
+  background:$orange;
+  @extend .heading-font;
+  color:$teal-dark;
+}
+.navbar-fixed-top .navbar-header .navbar-brand{
+  font-size: 2rem;
+  background:$orange-dark;
+  color:#333;
+}
+#navbar-wrap{
+  @include row();
+}

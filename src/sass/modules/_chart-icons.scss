@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'chart';
+    src:url('../../fonts/chart.eot?3ud2yo');
+    src:url('../../fonts/chart.eot?#iefix3ud2yo') format('embedded-opentype'),
+        url('../../fonts/chart.woff?3ud2yo') format('woff'),
+        url('../../fonts/chart.ttf?3ud2yo') format('truetype'),
+        url('../../fonts/chart.svg?3ud2yo#chart') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="chart-icon-"], [class*=" chart-icon-"] {
+    font-family: 'chart';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.chart-icon-camera:before {
+    content: "\e600";
+}
+.chart-icon-console:before {
+    content: "\e601";
+}
+.chart-icon-logo:before {
+    content: "\e602";
+}
+.chart-icon-quotes:before {
+    content: "\e603";
+}
+.chart-icon-results:before {
+    content: "\e604";
+}
+
+
+
+/* custom below */
+.chart-icon-lg{
+    font-size: 12rem;
+}

@@ -1,0 +1,35 @@
+@mixin h1imageback ($n: null) {
+	//the colors should be globally available
+	//Can output up to ten text shadows
+	  //text-shadow: $blue 5px 5px 0, $red 10px 10px 0, $green 15px 15px 0, $yellow 20px 20px 0;
+	  // Can output up to ten text shadows
+	  @if $n == null {
+	  	$n: .25;
+	  }
+	  &.red{
+	  	text-shadow: $m-red $n+rem $n+rem 0, $l-red (2*$n)+rem (2*$n)+rem 0;
+	  }
+	   &.green{
+	  	text-shadow: $m-green $n+rem $n+rem 0, $l-green (2*$n)+rem (2*$n)+rem 0;
+	  }
+	  &.yellow{
+	  	text-shadow: $m-yellow $n+rem $n+rem 0, $l-yellow (2*$n)+rem (2*$n)+rem 0;
+	  }
+	  &.blue{
+	  	text-shadow: $m-blue $n+rem $n+rem 0, $l-blue (2*$n)+rem (2*$n)+rem 0;
+	  }
+}
+
+.img-back{
+	@include h1imageback();
+
+	&.img-divider{
+		@include h1imageback(.1);
+		@include min-screen($xs) {
+			@include h1imageback(.175);
+		}
+		@include min-screen($sm) {
+			@include h1imageback(.2);
+		}
+	}
+}

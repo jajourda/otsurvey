@@ -1,0 +1,64 @@
+//_saying-slider.scss
+.saying-slider{
+  @include row();
+  //make ng-disable work with columns
+  .disable-ng-animate{
+    @include row();
+  }
+  .img-wrap{
+    @include sm(2.5);
+    figure.saying-img{
+     // @include column(12,0);
+    }
+  }
+  .blockquote-wrap{
+    @include sm(9.5) {
+      @include pv($g);
+    }
+    blockquote{
+      @include unset-block;
+      border-left: none;
+    }
+    footer{
+      @include pv($p);
+    }
+    cite{
+      font-style: normal;
+      @extend .heading-font;
+      color:black;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+  }
+  .indiv-saying{
+    font-weight: 900;
+    font-style: italic;
+    line-height: ($g * 1.25);
+    text-align: left;
+    font-size: 1.25rem;
+  }
+  //slider config
+  .carousel{
+    @include sm(7,2.5){
+      padding-left: 0;
+      padding-right: 0;
+      @include pv($p);
+      @include clearfix;
+    }
+  }
+  .carousel-control{
+    &.left{
+      @include sm{
+        left:-15%;
+      };
+    }
+    &.right{
+      @include sm{
+        right:-15%;
+      };
+    }
+    span.glyphicon{
+      color:$brand-success;
+    }
+  }
+}

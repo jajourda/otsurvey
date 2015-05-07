@@ -1,0 +1,26 @@
+
+//compass mixins
+// bower:scss
+
+// endbower
+
+
+/*framework*/
+@import 'framework/_all.scss';
+
+/*vendors*/
+//@import 'vendor/modern-business.scss';
+
+
+/*modules required by every section of the site*/
+
+@import 'modules/perfect-parallax.scss';
+
+@import 'modules/navbar.scss';
+
+@import 'modules/know';
+@import 'modules/footer';
+
+/* sections */
+
+

@@ -1,0 +1,16 @@
+//_saying.scss
+
+//parent or wrapping element
+.official-saying{
+  @include row();
+  figure.logo-wrap{
+    @include unset-block;
+    @include pv(2000px);
+    @include row();
+    //bigger styles
+    @include sm(6);
+    @include md(3);
+  }
+}
+
+@import '../modules/saying-slider';

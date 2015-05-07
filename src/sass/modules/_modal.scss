@@ -1,0 +1,94 @@
+.modal-content{
+	@include column(12,0);
+
+}
+
+.modal-dialog{
+	@include min-screen($md) {
+		@include column(12, $g);
+		@include pv($g);
+	}
+}
+.modal-header{
+	background:$primary-lighter;
+	.modal-title{
+		color:$primary;
+		font-size: 4rem;
+		font-weight: 700;
+	}
+}
+
+//product specific modal
+.modal-body{
+	@include column(12);
+	@include pv($p);
+	p.product-description{
+		font-size: 2.25rem;
+		font-weight: 100;
+	}
+	.well{
+		background:$secondary-lighter;
+		@include column(12);
+		@include pv($p);
+		@include min-screen($md){
+			@include column(6);
+		}
+	}
+	.slider-wrap{
+    .inner-carousel-include{
+      @include min-screen($md){
+        //@include column(6);
+        @include column(9);
+        @include push(1.5);
+        @include pull(1.5);
+      }
+    }
+		.slider{
+			@include min-screen($md){
+				@include column(10);
+				@include push(1);
+				@include pull(1);
+			}
+		}
+		p.product-description{
+			@include min-screen($md){
+				@include column(6);
+
+			}
+		}
+	}
+	hr.main-divider.primary{
+		border-top-color: $primary-light;
+		@include min-screen($md){
+			display: none;
+		}
+		&.md-up{
+			@include min-screen($md){
+				@include column(12);
+				margin-bottom: $g;
+			}
+		}
+	}
+	a.btn.btn-tech-sheet{
+		@include column(12);
+		@include pv($p);
+		background:$secondary-dark;
+		color:$secondary-lighter;
+	}
+}
+
+.modal-footer{
+	@include column(12);
+	button.btn{
+		@include column(12);
+		@include pv($p);
+		background:$primary-lighter;
+		color:$primary;
+		text-transform: uppercase;
+		font-size: 3rem;
+		@extend .heading-font;
+    span{
+      font-size: 2.25rem;
+    }
+	}
+}

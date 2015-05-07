@@ -1,0 +1,32 @@
+.inner-slide-wrap{
+	$qHalf: ($q * 0.5);
+	@include column(12);
+	@include min-screen($md) {
+		@include column(9);
+	}
+
+	.thumbnails-wrap{
+		@include column(12,0);
+		background:$secondary;
+		border-top: $qHalf solid $secondary;
+		div.thumbnails{
+			@include column(12,0);
+		}
+		.figure-thumbnail{
+
+			@include column(4,$qHalf);
+			@include pv(0,$qHalf);
+			//padding-left: 0;
+			@include min-screen($sm) {
+				@include column(2,$qHalf);
+				@include pv(0,$qHalf);
+			}
+		}
+	}
+}
+
+.inner-carousel-include{
+	.inner-slide-wrap{
+		@include column(12);
+	}
+}

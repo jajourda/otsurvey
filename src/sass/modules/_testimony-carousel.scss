@@ -1,0 +1,67 @@
+/* Home Page Carousel */
+
+.carousel-wrap{
+	@include row();
+	//height:100px;
+	height:auto;
+}
+.carousel, .carousel-inner, .item, .fill{
+	//height:inherit;
+	@include column(12,0);
+	height:auto;
+}
+
+blockquote{
+	p{
+		font-size: 3rem;
+		font-style: italic;
+		font-weight: 900;
+	}
+}
+.carousel-control{
+	width:5%;
+	margin-top: -10rem;
+	&.right,&.left{
+		span.glyphicon{
+			color:$primary;
+		}
+	}
+	
+}
+.carousel-inner{
+	@include min-screen($sm) {
+		@include column(12,0);
+	}
+	.blockquote-wrap{
+		@include min-screen($sm) {
+			@include column(12,0);
+		}
+		blockquote{
+			border-left:none;
+			margin-bottom: 0;
+			@include min-screen($sm) {
+				@include column(10,0);
+				@include push(1);
+				@include pull(1);
+			}
+			div.blockquote-inner{
+			
+			}
+			div.testimonial-quote{
+				font-weight: 300;
+				color:lighten(black, .35);
+				font-size: 2.75rem;
+
+			}
+			footer{
+				cite{
+					font-weight: 300;
+					font-size: 2rem;
+				}
+				div.organization{
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+}

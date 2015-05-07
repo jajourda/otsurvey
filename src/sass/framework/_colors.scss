@@ -1,0 +1,50 @@
+$main: #D38948;
+$main-light: #FFCEA3;
+$main-med: #F5B073;
+$main-dark: #B56925;
+$main-darker: #8F4A0D;
+//other stuff
+$black: #22251E;
+$white:#f5f5f5;
+
+
+
+
+$secondary: #FFEA66;  /* Main Primary color */
+$secondary-lighter: #FFF5B6;
+$secondary-light: #FFEF8B;
+$secondary-medium: #EDD642;
+$secondary-dark: #CFB61A;
+
+
+$water-blue:#8391D0;
+
+$primary: #CB1B24;  /* Main Primary color */
+$primary-lighter: #FB7077;
+$primary-light: #E1424A;
+$primary-medium: #A40A12;
+$primary-dark: #7D0006;
+
+
+
+
+$lightest-base-primary: lighten($primary-lighter, 20%);
+$primary-lightest: desaturate($lightest-base-primary, 12%);
+
+//otsurvey specific
+
+$teal-dark: #83A498;
+$teal-medium: #A2CFC1;
+$orange-dark:#F05A22;
+$orange-medium:#E78A2B;
+$orange: #F79837;
+$yellow-dark:#CCBD70;
+$yellow-medium:#DDD178;
+$yellow:#E7DE78;
+$green-dark:#AEC98C;
+$green-medium:#BDDC99;
+*{
+
+}
+
+

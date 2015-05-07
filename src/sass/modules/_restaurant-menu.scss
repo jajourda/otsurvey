@@ -1,0 +1,212 @@
+//_restaurant-menu.scss
+.menu-item{
+	@include sm(6);
+	@include md(4);
+	figure{
+		figcaption{
+			@include pv($p);
+			@include md {
+				font-size: 1.25rem;
+			}
+			span.price{
+				float: right;
+			}
+		}
+	}
+}
+
+.menu-modal{
+	@extend .gb;
+	.modal-dialog{
+		@include row();
+		width:100%;
+		.menu-item-modal-wrap{
+			@include column(12);
+			@include sm {
+				@include column(12, $g2);
+			};
+			.item-title{
+				h3{
+					text-align: center;
+					font-size: 1.25rem;
+				}
+			}
+			.item-description{
+				@include column(9,0);
+				@include pv($p);
+				font-weight: bold;
+				float: left;
+			}
+			.item-price{
+				@include column(3,0);
+				@include pv($p);
+				float: right;
+				font-size: 3rem;
+				// @extend .rb;
+				text-align: right;
+			}
+			.close-button-top{
+				button{
+					position: absolute;
+					right:0;
+					font-size: 5rem;
+					font-weight: 100;
+					border:none;
+					background: none;
+					figure{
+						width:25px;
+					}
+				}
+			}
+			.close-button-bottom{
+				button{
+					@include column(12);
+					@include pv($p);
+					border:none;
+					background:$secondary;
+					font-size: 2rem;
+					color:$secondary-dark;
+					text-transform: uppercase;
+					span.icon-close{
+						font-size: 1.5rem;
+					}
+				}
+			}
+			figure.item-img{
+				@include sm(10,1);
+			}
+		}
+	}
+}
+.accordion-group{
+	//@extend .clearfix;
+	@include column(12);
+	@include pv($p);
+	border: none;
+	box-shadow: none;
+	background:$secondary-medium;
+	@include md(5.5,.25){
+		//@include unset-block;
+		@include pv($p);
+		//override panel from accordion bootstrap style
+		&.panel-default.panel{
+			margin-top: 0;
+		}
+	}
+	.panel-heading{
+		background: none;
+	}
+	.accordion-group-shot{
+		width:50px;
+		float:left;
+		margin-right: $p;
+		//@extend .rb;
+	}
+}
+
+#menu .sub-secondary{
+	@include row();
+	h3.select-message, div.point-up{
+		@include column(12);
+		@include pv($p);
+		@include mv(0);
+		text-align: center;
+		color: #000;
+		font-size: 4rem;
+		color:$primary;
+		margin-bottom: $g2;
+	}
+	div.point-up{
+		font-size: 8rem;
+		margin-bottom: $p;
+	}
+	ul{
+		@include unset-block;
+		@include row();
+		li{
+			@include unset-block;
+			@include column(4,0);
+			@include mv($p);
+			//@include pv($p);
+			text-align: center;
+			@include md(3);
+
+		}
+	}
+	div.selected-category{
+		h4{
+			text-align: center;
+			font-size: 4rem;
+			color:$black;
+
+			text-transform: capitalize;
+			@include pv($p);
+			//text-shadow: .25rem .25rem 0 $secondary-dark;
+		}
+	}
+}
+
+.menu-not-small{
+	ul{
+		@include unset-block;
+		li{
+			@include column(4);
+			@include md(3);
+			@include lg(2);
+			button{
+				border: none;
+				background: none;
+				position: relative;
+				//border:solid green 2px;
+				background:#ddd;
+				@include column(12,0);
+				@include mv($q);
+				@include pv($p);
+				&.active{
+					background:#bbb;
+				}
+				figure.category-shot{
+					@include column(12, $g);
+					// @include lg {
+					// 	@include column(3);
+					// }
+					img{
+						@extend .img-circle;
+					}
+				}
+				h4{
+					@include column(12);
+					position: relative;
+					text-align: left;
+					font-size: 1.5rem;
+					@include lg{
+						position:static;
+						text-align: center;
+						font-size: 1.5rem;
+						height:4rem;
+					};
+					// @include lg {
+					// 	@include column(9);
+					// 	text-align: left;
+					// 	position: relative;
+					// 	font-size: 2.5rem;
+					// 	top:$g;
+					// };
+				}
+				span.icon{
+					position: absolute;
+					right:$p;
+					//font-size: 3rem;
+					// @include lg {
+					// 	font-size: 5rem;
+					// 	top:$g;
+					// }
+					@include lg {
+						top:$p;
+					};
+				}
+
+			}
+		}
+	}
+}
