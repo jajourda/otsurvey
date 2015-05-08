@@ -11,6 +11,7 @@ angular.module('otsurvey')
     // $scope.dreamSections = initialData.dreamSections[0];
     // $scope.services = initialData.services;
     // $scope.clients = clients;
+    $scope.articles = initialData.article;
 
     $scope.currentCourse = 'Old Testament 2: History and Writings';
 

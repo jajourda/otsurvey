@@ -18,37 +18,49 @@ body {
     background: $yellow;
 }
 
-.app-wrap{
-  @include row();
+.app-wrap {
+    @include row();
 }
-.shaped-container{
-  //overflow:hidden;
-  height: 100vh;
-  width: 100vw;
-  position: relative;
+
+.footer {
+    @include row();
+    .footer-inner {
+        @include column(12);
+    }
 }
-.shaped{
-  height:100vh;
-  width:40vw;
-  float:right;
-  background-color:#ccc;
-  background-size:contain;
-  background-repeat: no-repeat;
-  background-image:url('/assets/images/ezekiel1-right.png');
-  /*-webkit-shape-outside: polygon(0 0, 100% 0, 100% 100%, 30% 100%);*/
-  shape-outside: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
-  shape-margin: 20px;
-  &.left{
-    float:left;
-    //background-color:#ccc;
-    background-image:url('/assets/images/ezekiel1-left.png');
-    shape-outside: polygon(0 100%, 0 100%, 100% 0, 0 0);
-    clip-path: polygon(0 100%, 0 100%, 100% 0, 0 0);
-  }
+
+.shaped-container {
+    //overflow:hidden;
+    //height: 100vh;
+    height: auto; //this will allow the content to flow
+    width: 100vw;
+    position: relative;
 }
-.shaped-content{
-  padding-top: $p;
+
+.shaped {
+    height: 100vh;
+    width: 40vw;
+    float: right;
+    background-color: #ccc;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/assets/images/ezekiel1-right.png');
+    /*-webkit-shape-outside: polygon(0 0, 100% 0, 100% 100%, 30% 100%);*/
+
+    shape-outside: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
+    shape-margin: 20px;
+    &.left {
+        float: left;
+        //background-color:#ccc;
+        background-image: url('/assets/images/ezekiel1-left.png');
+        shape-outside: polygon(0 100%, 0 100%, 100% 0, 0 0);
+        clip-path: polygon(0 100%, 0 100%, 100% 0, 0 0);
+    }
+}
+
+.shaped-content {
+    padding-top: $p;
 }
 
 @include max-screen($sm-max) {
@@ -69,8 +81,6 @@ body {
 .wrapper {
     @include row($p);
 }
-
-
 
 //universals
 h1,
@@ -282,65 +292,85 @@ figure img {
         text-align: center;
     }
     strong.focus {
-      color:$yellow;
+        color: $yellow;
         background: $teal-dark;
         padding: $q;
         display: inline-block;
         //@extend .heading-font;
         font-size: 4rem;
-        padding:$p;
+        padding: $p;
         letter-spacing: $p;
     }
-    em{
-      font-weight: 700;
+    em {
+        font-weight: 700;
     }
-    .current-wrap{
-      background:$orange-dark;
-      @include pv($g);
-      h2{
+    .current-wrap {
+        background: $orange-dark;
+        @include pv($g);
+        h2 {
+            text-align: center;
+        }
+    }
+    div.current {
         text-align: center;
-      }
     }
-    div.current{
-      text-align: center;
+    div.course-list-wrap{
+      @include row();
+    }
+    div.course-list{
+      // @include column(8);
+      // @include push(2);
+      // @include pull(2);
+    }
+    .article-title h1 {
+        @extend .copy-font;
+        text-align: left;
+        text-shadow: none;
+        font-size: 1.75rem;
+        color: #333;
     }
 }
 
 //components: navbar
 #navbar {
     background: $teal-dark;
-    border:none;
-    @include column(12,0);
+    border: none;
+    @include column(12, 0);
     margin: 0;
     position: relative;
-    &:after{
-      content: '';
-      background:$teal-medium;
-      display: block;
-      position:absolute;
-      width:100%;
-      height:$g;
-      bottom:-$g;
-      left:0;
+    &:after {
+        content: '';
+        background: $teal-medium;
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: $g;
+        bottom: -$g;
+        left: 0;
     }
-    ul{
-      li{
-        a{
-          color:$yellow;
+    ul {
+        li {
+            a {
+                color: $yellow;
+            }
         }
-      }
     }
 }
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{
-  background:$orange;
-  @extend .heading-font;
-  color:$teal-dark;
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    background: $orange;
+    @extend .heading-font;
+    color: $teal-dark;
 }
-.navbar-fixed-top .navbar-header .navbar-brand{
-  font-size: 2rem;
-  background:$orange-dark;
-  color:#333;
+
+.navbar-fixed-top .navbar-header .navbar-brand {
+    font-size: 2rem;
+    background: $orange-dark;
+    color: #333;
 }
-#navbar-wrap{
-  @include row();
+
+#navbar-wrap {
+    @include row();
 }

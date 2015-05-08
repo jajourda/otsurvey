@@ -27,10 +27,14 @@
             <h2>{{currentCourse}}</h2>
         </div>
 
-        <div class="course-list">
-          <ol>
-            <li></li>
-          </ol>
+        <div class="course-list-wrap">
+          <div class="course-list">
+            <ol>
+              <li ng-repeat="article in articles | orderBy: 'priority.value'">
+                <span class="article-title" prismic-html="" fragment="article.title"></span>
+              </li>
+            </ol>
+          </div>
         </div>
     </div>
 </div>
