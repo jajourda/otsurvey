@@ -23,18 +23,19 @@
         <p class="lead">according to the Old Testament Scriptures.</p>
         <p class="lead"><em>1 Cor. 15.3-4</em></p>
         <div class="current-wrap">
-          <div class="current"><strong>Current OT Course:</strong></div>
+            <div class="current"><strong>Current OT Course:</strong></div>
             <h2>{{currentCourse}}</h2>
         </div>
-
         <div class="course-list-wrap">
-          <div class="course-list">
-            <ol>
-              <li ng-repeat="article in articles | orderBy: 'priority.value'">
-                <span class="article-title" prismic-html="" fragment="article.title"></span>
-              </li>
-            </ol>
-          </div>
+            <div class="course-list">
+                <ol>
+                    <li ng-repeat="article in articles | orderBy: 'priority.value'">
+                        <div><span class="article-title" prismic-html="" fragment="article.title"></span></div>
+                        <div>
+                            <span class="article-long-lede" prismic-html="" fragment="article.longlede"></span></div>
+                    </li>
+                </ol>
+            </div>
         </div>
     </div>
 </div>
